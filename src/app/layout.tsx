@@ -1,4 +1,5 @@
 import { Inter } from 'next/font/google'
+import localFont from "next/font/local";
 import './globals.css'
 import type { Metadata } from 'next'
 import { Providers } from './providers'
@@ -16,6 +17,12 @@ const lil = Inter({
   display: 'swap',
   weight: ['700', '800', '900'], // Bold weights for the brand
 })
+
+const lilDisplay = localFont({
+  src: "/fonts/LilMovementsDisplay.otf",
+  variable: "--font-lil-display",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: 'Lil Movements — Strength · Flow · Precision',
@@ -65,7 +72,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${lil.variable}`}>
+    <html lang="en" className={`${inter.variable} ${lilDisplay.variable}`}>
       <head>
         {/* Preload critical hero assets */}
         <link
@@ -81,7 +88,7 @@ export default function RootLayout({
           type="video/mp4"
         />
       </head>
-      <body className={`${inter.variable} font-sans bg-black text-white antialiased`}>
+      <body className="font-sans bg-black text-white antialiased">
         <Providers>{children}</Providers>
       </body>
     </html>
