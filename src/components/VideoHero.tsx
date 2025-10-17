@@ -190,3 +190,5 @@ export function VideoHero({
     </section>
   )
 }
+
+export default VideoHero

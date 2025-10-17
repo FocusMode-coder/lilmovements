@@ -2,12 +2,12 @@
 const nextConfig = {
   experimental: {
     optimizeCss: true,
-    turbo: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
+  },
+  turbopack: {
+    rules: {
+      '*.svg': {
+        loaders: ['@svgr/webpack'],
+        as: '*.js',
       },
     },
   },
@@ -26,7 +26,6 @@ const nextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
   // Analytics and performance optimizations
-  swcMinify: true,
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },

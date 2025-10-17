@@ -1,6 +1,5 @@
 'use client'
 
-import { DefaultSeo } from 'next-seo'
 import { AnalyticsProvider } from '@/components/AnalyticsProvider'
 
 const structuredData = {
@@ -87,56 +86,7 @@ const structuredData = {
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <DefaultSeo
-        titleTemplate="%s — Lil Movements"
-        defaultTitle="Lil Movements — Strength · Flow · Precision"
-        description="Premium dance and movement experiences curated by Lily. Explore the art of movement through elegant choreography and expressive dance."
-        canonical="https://lilmovements.com"
-        openGraph={{
-          type: 'website',
-          locale: 'en_US',
-          url: 'https://lilmovements.com',
-          siteName: 'Lil Movements',
-          description: 'Premium dance and movement experiences curated by Lily. Explore the art of movement through elegant choreography and expressive dance.',
-          images: [
-            {
-              url: 'https://lilmovements.com/assets/og.jpg',
-              width: 1200,
-              height: 630,
-              alt: 'Lil Movements - Premium dance and movement experiences',
-            },
-          ],
-        }}
-        twitter={{
-          cardType: 'summary_large_image',
-          site: '@lilmovements',
-          handle: '@lilmovements',
-        }}
-        additionalMetaTags={[
-          {
-            name: 'keywords',
-            content: 'dance, movement, choreography, lily, premium dance, modern dance, strength, flow, precision',
-          },
-          {
-            name: 'author',
-            content: 'Lily',
-          },
-          {
-            name: 'viewport',
-            content: 'width=device-width, initial-scale=1',
-          },
-        ]}
-        additionalLinkTags={[
-          {
-            rel: 'preload',
-            href: '/assets/hero_poster.jpg',
-            as: 'image',
-            type: 'image/jpeg',
-          },
-        ]}
-      />
-      
-      {/* Structured Data */}
+      {/* Structured Data for SEO */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -144,7 +94,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
         }}
       />
       
-      {/* Lazy-loaded Analytics */}
+      {/* Analytics Provider - minimal performance impact */}
       <AnalyticsProvider />
       
       {children}
