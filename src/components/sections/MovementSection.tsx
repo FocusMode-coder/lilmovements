@@ -1,7 +1,10 @@
 'use client'
 
+import React from 'react'
 import { useState } from 'react'
 import { Button } from '@/components/ui/Button'
+import { Badge } from '@/components/ui/Badge'
+import CTAGroup from '@/components/CTAGroup'
 
 interface MovementPiece {
   id: string
@@ -49,224 +52,61 @@ const movementPieces: MovementPiece[] = [
 
 export function MovementSection() {
   return (
-    <section id="classes" className="py-32 bg-black">
-      <div className="container max-w-7xl mx-auto px-4">
-        <div className="max-w-4xl mx-auto text-center mb-20">
-          <h2 className="font-lil text-5xl md:text-6xl font-bold text-white mb-8 tracking-tight">
-            Classes & Workshops
+    <section id="classes" className="py-16 md:py-24 bg-bg">
+      <div className="container max-w-7xl mx-auto">
+        <div className="max-w-4xl mx-auto text-center mb-16">
+          <h2 className="font-lil text-4xl md:text-5xl lg:text-6xl font-bold text-ink2 tracking-tight mb-6">
+            Programs
           </h2>
-          <p className="text-xl text-white/90 leading-relaxed">
-            Discover your movement potential through our carefully curated programs 
-            designed for dancers at every stage of their journey.
+          <p className="text-lg lg:text-xl text-ink1 leading-relaxed">
+            Experiencias de movimiento diseñadas para cada etapa de tu práctica, combinando técnica consciente y expresión auténtica.
           </p>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-8 lg:gap-12 max-w-6xl mx-auto mb-16">
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-12">
           {/* Contemporary Foundations */}
-          <article className="bg-white/5 p-8 rounded-2xl hover:bg-white/10 transition-colors duration-300">
-            <h3 className="text-white font-bold text-xl mb-4">Contemporary Foundations</h3>
-            <p className="text-white/80 mb-6 leading-relaxed">
-              Explore contemporary dance fundamentals with emphasis on floor work, 
-              release technique, and expressive movement vocabulary.
+          <article className="bg-warm1 p-8 rounded-2xl ring-1 ring-inset ring-white/10 hover:bg-warm2 transition-colors duration-300">
+            <h3 className="text-ink2 font-bold text-xl mb-4 tracking-tight">Contemporary Foundations</h3>
+            <p className="text-ink1 leading-relaxed mb-6">
+              Explora fundamentos de danza contemporánea con énfasis en floor work, release technique y vocabulario expresivo de movimiento.
             </p>
-            <div className="space-y-2 text-white/70 mb-6">
-              <p><strong>Schedule:</strong> Wednesdays 7:00 PM</p>
-              <p><strong>Duration:</strong> 90 minutes</p>
-              <p><strong>Level:</strong> Beginner to Intermediate</p>
+            <div className="space-y-2 text-ink1/80 text-sm mb-6">
+              <p><strong>Horario:</strong> Miércoles 7:00 PM</p>
+              <p><strong>Duración:</strong> 90 minutos</p>
+              <p><strong>Nivel:</strong> Principiante a Intermedio</p>
             </div>
           </article>
           
           {/* Urban Flow */}
-          <article className="bg-white/5 p-8 rounded-2xl hover:bg-white/10 transition-colors duration-300">
-            <h3 className="text-white font-bold text-xl mb-4">Urban Flow</h3>
-            <p className="text-white/80 mb-6 leading-relaxed">
-              Street-inspired movement meets contemporary technique in this 
-              dynamic exploration of urban dance styles and personal expression.
+          <article className="bg-warm1 p-8 rounded-2xl ring-1 ring-inset ring-white/10 hover:bg-warm2 transition-colors duration-300">
+            <h3 className="text-ink2 font-bold text-xl mb-4 tracking-tight">Urban Flow</h3>
+            <p className="text-ink1 leading-relaxed mb-6">
+              Movimiento urbano encuentra técnica contemporánea en esta exploración dinámica de estilos de street dance y expresión personal.
             </p>
-            <div className="space-y-2 text-white/70 mb-6">
-              <p><strong>Schedule:</strong> Saturdays 2:00 PM</p>
-              <p><strong>Duration:</strong> 75 minutes</p>
-              <p><strong>Level:</strong> All levels welcome</p>
+            <div className="space-y-2 text-ink1/80 text-sm mb-6">
+              <p><strong>Horario:</strong> Sábados 2:00 PM</p>
+              <p><strong>Duración:</strong> 75 minutos</p>
+              <p><strong>Nivel:</strong> Todos los niveles</p>
             </div>
           </article>
           
           {/* Private Sessions */}
-          <article className="bg-white/5 p-8 rounded-2xl hover:bg-white/10 transition-colors duration-300">
-            <h3 className="text-white font-bold text-xl mb-4">Private Sessions</h3>
-            <p className="text-white/80 mb-6 leading-relaxed">
-              Personalized one-on-one coaching tailored to your specific goals, 
-              whether preparing for auditions or developing your unique style.
+          <article className="bg-warm1 p-8 rounded-2xl ring-1 ring-inset ring-white/10 hover:bg-warm2 transition-colors duration-300">
+            <h3 className="text-ink2 font-bold text-xl mb-4 tracking-tight">Sesiones Privadas</h3>
+            <p className="text-ink1 leading-relaxed mb-6">
+              Coaching personalizado uno-a-uno adaptado a tus objetivos específicos, ya sea preparación para audiciones o desarrollo de tu estilo único.
             </p>
-            <div className="space-y-2 text-white/70 mb-6">
-              <p><strong>Schedule:</strong> By appointment</p>
-              <p><strong>Duration:</strong> 60 or 90 minutes</p>
-              <p><strong>Level:</strong> Customized to you</p>
+            <div className="space-y-2 text-ink1/80 text-sm mb-6">
+              <p><strong>Horario:</strong> Por cita</p>
+              <p><strong>Duración:</strong> 60 o 90 minutos</p>
+              <p><strong>Nivel:</strong> Personalizado</p>
             </div>
           </article>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-8 lg:gap-12 max-w-6xl mx-auto mb-16">
-          {/* Private 1:1 Sessions - FEATURED */}
-          <article className="gradient-border bg-white/5 p-8 hover:bg-white/10 transition-colors duration-300">
-            <div className="relative z-10">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-white font-bold text-xl">Private 1:1</h3>
-                <span className="text-xs font-semibold text-black bg-white px-2 py-1 rounded-full">
-                  FEATURED
-                </span>
-              </div>
-              <p className="text-white/80 mb-6 leading-relaxed">
-                Personalized one-on-one coaching tailored to your specific goals, 
-                whether preparing for auditions or developing your unique style.
-              </p>
-              <div className="space-y-2 text-white/70 mb-6">
-                <p><strong>Schedule:</strong> By appointment</p>
-                <p><strong>Duration:</strong> 60 or 90 minutes</p>
-                <p><strong>Level:</strong> Customized to you</p>
-                <p className="text-white font-semibold text-lg">From $120/session</p>
-              </div>
-              <Button
-                size="lg"
-                className="w-full text-lg micro-scale"
-                asChild
-              >
-                <a
-                  href="https://buy.stripe.com/..."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Book Private 1:1 Session"
-                >
-                  Book Now
-                </a>
-              </Button>
-            </div>
-          </article>
-          
-          {/* Small Group */}
-          <article className="bg-white/5 p-8 rounded-2xl hover:bg-white/10 transition-colors duration-300 micro-scale">
-            <h3 className="text-white font-bold text-xl mb-4">Small Group</h3>
-            <p className="text-white/80 mb-6 leading-relaxed">
-              Intimate group sessions (3-5 dancers) combining contemporary foundations 
-              with urban flow techniques for collaborative learning.
-            </p>
-            <div className="space-y-2 text-white/70 mb-6">
-              <p><strong>Schedule:</strong> Saturdays 2:00 PM</p>
-              <p><strong>Duration:</strong> 75 minutes</p>
-              <p><strong>Level:</strong> All levels welcome</p>
-              <p className="text-white font-semibold text-lg">$45/class</p>
-            </div>
-            <Button
-              size="lg"
-              className="w-full text-lg"
-              asChild
-            >
-              <a
-                href="https://buy.stripe.com/..."
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Book Small Group Session"
-              >
-                Book Now
-              </a>
-            </Button>
-          </article>
-          
-          {/* Choreo Lab */}
-          <article className="bg-white/5 p-8 rounded-2xl hover:bg-white/10 transition-colors duration-300 micro-scale">
-            <h3 className="text-white font-bold text-xl mb-4">Choreo Lab</h3>
-            <p className="text-white/80 mb-6 leading-relaxed">
-              Experimental workshop for advanced dancers exploring creative process, 
-              improvisation, and collaborative choreography development.
-            </p>
-            <div className="space-y-2 text-white/70 mb-6">
-              <p><strong>Schedule:</strong> Monthly workshops</p>
-              <p><strong>Duration:</strong> 3 hours</p>
-              <p><strong>Level:</strong> Advanced</p>
-              <p className="text-white font-semibold text-lg">Contact for details</p>
-            </div>
-            <Button
-              variant="outline"
-              size="lg"
-              className="w-full text-lg"
-              asChild
-            >
-              <a
-                href="mailto:bookings@lilmovements.com?subject=Choreo%20Lab%20Inquiry"
-                aria-label="Contact for Choreo Lab booking"
-              >
-                Contact Us
-              </a>
-            </Button>
-          </article>
-        </div>
-        
-        {/* Book a Class CTAs */}
-        <div className="text-center">
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="text-lg px-8 py-4"
-              asChild
-            >
-              <a
-                href="https://wa.me/1234567890"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Book a class via WhatsApp"
-              >
-                Book a Class via WhatsApp
-              </a>
-            </Button>
-            
-            <Button
-              variant="outline"
-              size="lg"
-              className="text-lg px-8 py-4"
-              asChild
-            >
-              <a
-                href="mailto:hello@lilmovements.com?subject=Class%20Booking%20Inquiry"
-                aria-label="Book a class via email"
-              >
-                Email Us
-              </a>
-            </Button>
-          </div>
-        </div>
-        
-        {/* Additional Info CTAs */}
-        <div className="text-center">
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              variant="secondary"
-              size="lg"
-              className="text-lg px-8 py-4"
-              asChild
-            >
-              <a
-                href="https://wa.me/1234567890"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Questions via WhatsApp"
-              >
-                Questions? WhatsApp Us
-              </a>
-            </Button>
-            
-            <Button
-              variant="outline"
-              size="lg"
-              className="text-lg px-8 py-4"
-              asChild
-            >
-              <a
-                href="mailto:hello@lilmovements.com?subject=Class%20Information"
-                aria-label="General inquiries via email"
-              >
-                General Inquiries
-              </a>
-            </Button>
-          </div>
+        {/* CTA Group */}
+        <div className="flex justify-center">
+          <CTAGroup program="Movement Classes" />
         </div>
       </div>
     </section>

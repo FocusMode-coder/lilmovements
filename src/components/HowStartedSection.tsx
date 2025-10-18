@@ -1,36 +1,36 @@
-import React from 'react';
+import React from 'react'
 
 export default function HowStartedSection() {
   return (
-    <section className="bg-black py-16 lg:py-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <section className="py-16 md:py-24 bg-[var(--warm1)]">
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="md:grid grid-cols-2 gap-8 items-center">
           {/* Video */}
-          <div className="order-2 lg:order-1">
-            <div className="aspect-video w-full">
+          <div className="mb-8 md:mb-0">
+            <div className="relative aspect-video w-full rounded-3xl overflow-hidden">
               <video
                 src="/assets/howgotstarted.mp4"
                 controls
                 playsInline
                 preload="metadata"
                 poster="/assets/hero_poster.jpg"
-                className="w-full h-full object-cover rounded-lg"
-                aria-label="How Lil Movements started video"
+                className="w-full h-full object-cover hairline bg-[var(--warm1)]"
+                aria-label="How Lil Movements started - video story"
               />
             </div>
           </div>
           
-          {/* Text Content */}
-          <div className="order-1 lg:order-2">
-            <h2 className="font-brand heading-lg text-white mb-6">
+          {/* Content */}
+          <div className="space-y-6">
+            <h2 className="font-brand text-4xl md:text-5xl font-bold text-[var(--ink2)] tracking-tight leading-tight">
               How Lil Movements Started
             </h2>
-            <p className="body-lg text-white/80 leading-relaxed">
-              Born from a mix of yoga, dance and qigong, Lil Movements became a 45-minute practice for energy release, precision and awareness.
+            <p className="text-lg lg:text-xl text-[var(--ink1)] leading-relaxed">
+              Born from a blend of yoga, dance, and qigong, Lil Movements is a 45-minute practice to release stagnant energy, refine precision, and inhabit the body with presence.
             </p>
           </div>
         </div>
       </div>
     </section>
-  );
+  )
 }

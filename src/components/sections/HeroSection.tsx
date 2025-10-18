@@ -20,7 +20,10 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section className="relative w-full h-screen min-h-[600px] overflow-hidden bg-black">
+    <section className="relative w-full h-screen min-h-[600px] overflow-hidden bg-warm1 bg-[radial-gradient(1200px_600px_at_50%_0%,rgba(198,166,121,.08),transparent)]">
+      {/* Warm band behind navbar */}
+      <div className="absolute top-0 left-0 right-0 h-20 bg-warm2/70 backdrop-blur-xl z-5" />
+
       {/* Video Background */}
       {!prefersReducedMotion ? (
         <video
@@ -63,13 +66,16 @@ export function HeroSection() {
       <div className="relative z-10 flex items-center justify-center h-full">
         <div className="container max-w-7xl mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
-            {/* Main Headline */}
-            <h1 className="font-lil text-6xl md:text-8xl lg:text-9xl font-bold text-white mb-6 tracking-tight leading-none">
-              Lil Movements
+            {/* Main Headline with brand font and accent hover */}
+            <h1 className="font-brand text-6xl md:text-8xl lg:text-9xl font-bold text-white mb-6 tracking-tight leading-none relative group cursor-default">
+              <span className="relative">
+                Lil Movements
+                <span className="absolute bottom-0 left-0 w-0 h-1 bg-accent/50 transition-all duration-500 group-hover:w-full"></span>
+              </span>
             </h1>
             
             {/* Subheadline */}
-            <p className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-12 font-light tracking-wide">
+            <p className="text-xl md:text-2xl lg:text-3xl text-ink1 mb-12 font-light tracking-wide">
               Strength · Flow · Precision
             </p>
             

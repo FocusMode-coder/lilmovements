@@ -2,19 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Lil Movements Design System */
+:root {
+  --bg: #0e0d0b;        /* carbon warm */
+  --warm1: #15110e;     /* espresso */
+  --warm2: #1f1914;     /* cacao */
+  --panel: #12100e;     /* deep panel */
+  --accent: #c7a674;    /* soft bronze */
+  --ink1: #e7e2dd;      /* warm sand */
+  --ink2: #ffffff;      /* pure for titles */
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 5rem; /* Account for sticky navbar */
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) var(--warm1);
   }
   
   body {
+    background: var(--bg);
+    color: var(--ink2);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   
   * {
     box-sizing: border-box;
+  }
+
+  /* Premium scrollbars */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--warm1);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #d4b686;
   }
 
   /* Respect user's motion preferences */
@@ -31,7 +65,7 @@
 
   /* Enhanced focus styles */
   *:focus-visible {
-    outline: 2px solid currentColor;
+    outline: 2px solid var(--accent);
     outline-offset: 2px;
   }
 
@@ -43,39 +77,131 @@
 
 @layer components {
   .container {
-    @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      max-width: 640px;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      max-width: 768px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      max-width: 1024px;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container {
+      max-width: 1280px;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .container {
+      max-width: 1536px;
+    }
   }
   
   .section-padding {
-    @apply py-16 lg:py-24;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-padding {
+      padding-top: 12rem;
+      padding-bottom: 12rem;
+    }
   }
   
   .heading-xl {
-    @apply text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-none;
+    font-size: 3.75rem;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+  }
+
+  @media (min-width: 768px) {
+    .heading-xl {
+      font-size: 6rem;
+    }
   }
   
   .heading-lg {
-    @apply text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight;
+    font-size: 2.25rem;
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+
+  @media (min-width: 768px) {
+    .heading-lg {
+      font-size: 3rem;
+    }
   }
   
   .heading-md {
-    @apply text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight;
+    font-size: 1.875rem;
+    line-height: 1.3;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+  }
+
+  @media (min-width: 768px) {
+    .heading-md {
+      font-size: 2.25rem;
+    }
   }
   
   .body-lg {
-    @apply text-lg lg:text-xl leading-relaxed;
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+
+  @media (min-width: 768px) {
+    .body-lg {
+      font-size: 1.25rem;
+    }
   }
   
   .body-base {
-    @apply text-base lg:text-lg leading-relaxed;
+    font-size: 1rem;
+    line-height: 1.6;
   }
   
   .btn-primary {
-    @apply inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-black hover:bg-gray-900 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2;
+    background-color: #ffffff;
+    color: #000000;
+  }
+
+  .btn-primary:hover {
+    background-color: rgba(231, 226, 221, 1);
   }
   
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-black bg-white border-2 border-black hover:bg-black hover:text-white transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2;
+    background-color: transparent;
+    color: #e7e2dd;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.05);
   }
   
   /* Media containers with fixed aspect ratios to prevent CLS */
@@ -98,43 +224,43 @@
 
   /* Conditional animations that respect motion preferences */
   .animate-on-motion {
-    @apply transition-transform duration-300;
+    transition: transform 0.2s ease-out;
   }
 
-  @media (prefers-reduced-motion: no-preference) {
-    .animate-on-motion:hover {
-      @apply scale-105;
-    }
+  .animate-on-motion:hover {
+    transform: scale(1.02);
   }
 
   /* Micro-interactions with reduced motion support */
   .micro-scale {
-    @apply transition-transform duration-200 ease-out;
+    transition: transform 0.15s ease-out;
   }
 
-  @media (prefers-reduced-motion: no-preference) {
-    .micro-scale:hover {
-      @apply scale-105;
-    }
-    .micro-scale:active {
-      @apply scale-95;
-    }
+  .micro-scale:hover {
+    transform: scale(1.05);
+  }
+  .micro-scale:active {
+    transform: scale(0.95);
   }
 
   /* Kinetic underline for navigation */
   .kinetic-underline {
-    @apply relative overflow-hidden;
+    position: relative;
   }
 
   .kinetic-underline::after {
-    @apply absolute bottom-0 left-0 h-0.5 w-0 bg-white transition-all duration-300 ease-out;
     content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #c7a674;
+    transition: width 0.3s ease-out;
   }
 
-  @media (prefers-reduced-motion: no-preference) {
-    .kinetic-underline:hover::after {
-      @apply w-full;
-    }
+  .kinetic-underline:hover::after {
+    width: 100%;
   }
 
   /* Featured pricing card gradient border */
@@ -162,15 +288,34 @@
 
   /* CTA button with subtle interactions */
   .cta-button {
-    @apply inline-flex items-center justify-center gap-2 rounded-2xl px-8 py-4 font-semibold transition-all duration-200 ease-out;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    height: 3rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .cta-button:focus-visible {
+    outline: 2px solid rgba(199, 166, 116, 0.4);
+    outline-offset: 2px;
   }
 
   @media (prefers-reduced-motion: no-preference) {
     .cta-button:hover {
-      @apply scale-105 shadow-lg;
+      transform: scale(1.05);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
     .cta-button:active {
-      @apply scale-95;
+      transform: scale(0.95);
     }
   }
 }
@@ -182,6 +327,14 @@
   
   .font-brand {
     font-family: var(--font-lil-display), ui-sans-serif, system-ui, sans-serif;
+  }
+  
+  .font-lil {
+    font-family: var(--font-lil), ui-sans-serif, system-ui, sans-serif;
+  }
+  
+  .hairline {
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
   
   .bg-gradient-fade {
@@ -199,11 +352,12 @@
 
   /* Focus-visible utilities */
   .focus-ring {
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2;
   }
 
-  .focus-ring-white {
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black;
+  .focus-ring-white:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
   }
 
   .focus-ring-black {
@@ -217,5 +371,19 @@
 
   .shadow-soft-white {
     box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-motion,
+  .micro-scale,
+  .kinetic-underline::after {
+    transition: none;
+  }
+  
+  .animate-on-motion:hover,
+  .micro-scale:hover {
+    transform: none;
   }
 }

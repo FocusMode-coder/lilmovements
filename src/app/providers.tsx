@@ -1,5 +1,6 @@
 'use client'
 
+import { DefaultSeo } from 'next-seo'
 import { AnalyticsProvider } from '@/components/AnalyticsProvider'
 
 const structuredData = {
@@ -86,6 +87,69 @@ const structuredData = {
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <>
+      {/* Default SEO Configuration */}
+      <DefaultSeo
+        titleTemplate="%s — Lil Movements"
+        defaultTitle="Lil Movements — Breathe · Move · Align"
+        description="Premium 45-minute practice blending yoga, dance & qigong."
+        canonical="https://lilmovements.com"
+        openGraph={{
+          type: 'website',
+          locale: 'en_US',
+          url: 'https://lilmovements.com',
+          siteName: 'Lil Movements',
+          title: 'Lil Movements — Breathe · Move · Align',
+          description: 'Premium 45-minute practice blending yoga, dance & qigong.',
+          images: [
+            {
+              url: 'https://lilmovements.com/assets/og.jpg',
+              width: 1200,
+              height: 630,
+              alt: 'Lil Movements - Premium dance and movement practice',
+              type: 'image/jpeg',
+            },
+          ],
+        }}
+        twitter={{
+          handle: '@lilmovements',
+          site: '@lilmovements',
+          cardType: 'summary_large_image',
+        }}
+        additionalMetaTags={[
+          {
+            name: 'viewport',
+            content: 'width=device-width, initial-scale=1',
+          },
+          {
+            name: 'theme-color',
+            content: '#0e0d0b',
+          },
+          {
+            name: 'apple-mobile-web-app-capable',
+            content: 'yes',
+          },
+          {
+            name: 'apple-mobile-web-app-status-bar-style',
+            content: 'black-translucent',
+          },
+        ]}
+        additionalLinkTags={[
+          {
+            rel: 'icon',
+            href: '/favicon.ico',
+          },
+          {
+            rel: 'apple-touch-icon',
+            href: '/assets/apple-touch-icon.png',
+            sizes: '180x180',
+          },
+          {
+            rel: 'manifest',
+            href: '/manifest.json',
+          },
+        ]}
+      />
+
       {/* Structured Data for SEO */}
       <script
         type="application/ld+json"

@@ -1,26 +1,32 @@
 'use client'
 
 import { Button } from '@/components/ui/Button'
+import CTAGroup from '@/components/CTAGroup'
 
 export function ContactSection() {
   return (
-    <section id="contact" className="py-32 bg-white">
+    <section id="contact" className="py-16 md:py-24 bg-white">
       <div className="container max-w-7xl mx-auto px-4">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="font-lil text-5xl md:text-6xl font-bold text-black mb-8 tracking-tight">
+          <div className="text-center mb-16">
+            <h2 className="font-brand text-4xl md:text-5xl lg:text-6xl font-bold text-black tracking-tight mb-6">
               Connect
             </h2>
-            <p className="text-xl text-gray-800 leading-relaxed">
+            <p className="text-lg lg:text-xl text-gray-800 leading-relaxed">
               Ready to begin your movement journey? Let's start a conversation 
               about classes, workshops, or collaborative opportunities.
             </p>
           </div>
+
+          {/* CTA Group for primary actions */}
+          <div className="flex justify-center mb-16">
+            <CTAGroup program="Classes and Workshops" />
+          </div>
           
-          <div className="grid md:grid-cols-2 gap-20">
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
             {/* Contact Form */}
             <div>
-              <form className="space-y-8" action="mailto:hello@lilmovements.com" method="post" encType="text/plain">
+              <form className="space-y-6" action="mailto:hello@lilmovements.com" method="post" encType="text/plain">
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-black mb-3 uppercase tracking-wide">
                     Name
@@ -29,7 +35,7 @@ export function ContactSection() {
                     type="text"
                     id="name"
                     name="name"
-                    className="w-full px-6 py-4 border-2 border-gray-200 rounded-2xl focus:border-black focus:outline-none transition-colors duration-200 text-lg"
+                    className="w-full px-6 py-4 ring-1 ring-inset ring-gray-200 rounded-2xl focus:ring-2 focus:ring-accent/40 focus:outline-none transition-all duration-200 text-lg"
                     required
                     aria-describedby="name-help"
                   />
@@ -43,7 +49,7 @@ export function ContactSection() {
                     type="email"
                     id="email"
                     name="email"
-                    className="w-full px-6 py-4 border-2 border-gray-200 rounded-2xl focus:border-black focus:outline-none transition-colors duration-200 text-lg"
+                    className="w-full px-6 py-4 ring-1 ring-inset ring-gray-200 rounded-2xl focus:ring-2 focus:ring-accent/40 focus:outline-none transition-all duration-200 text-lg"
                     required
                     aria-describedby="email-help"
                   />
@@ -57,7 +63,7 @@ export function ContactSection() {
                     id="message"
                     name="message"
                     rows={6}
-                    className="w-full px-6 py-4 border-2 border-gray-200 rounded-2xl focus:border-black focus:outline-none transition-colors duration-200 resize-none text-lg"
+                    className="w-full px-6 py-4 ring-1 ring-inset ring-gray-200 rounded-2xl focus:ring-2 focus:ring-accent/40 focus:outline-none transition-all duration-200 resize-none text-lg"
                     required
                     aria-describedby="message-help"
                   />
@@ -66,7 +72,7 @@ export function ContactSection() {
                 <Button 
                   type="submit" 
                   size="lg"
-                  className="w-full text-lg"
+                  className="w-full text-lg min-w-[220px] focus-visible:ring-2 focus-visible:ring-accent/40"
                   aria-describedby="submit-help"
                 >
                   Send Message
@@ -75,10 +81,10 @@ export function ContactSection() {
             </div>
 
             {/* Contact Information */}
-            <div className="space-y-12">
+            <div className="space-y-8">
               <div>
-                <h3 className="text-black font-bold text-2xl mb-6">Get in Touch</h3>
-                <div className="space-y-6">
+                <h3 className="text-black font-bold text-2xl mb-6 tracking-tight">Get in Touch</h3>
+                <div className="space-y-4">
                   <div>
                     <div className="text-sm font-semibold text-black uppercase tracking-wide mb-2">
                       Email
@@ -90,25 +96,6 @@ export function ContactSection() {
                     >
                       hello@lilmovements.com
                     </a>
-                  </div>
-                  
-                  <div>
-                    <div className="text-sm font-semibold text-black uppercase tracking-wide mb-2">
-                      WhatsApp
-                    </div>
-                    <Button
-                      variant="outline"
-                      asChild
-                    >
-                      <a
-                        href="https://wa.me/1234567890"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Contact via WhatsApp"
-                      >
-                        Message on WhatsApp
-                      </a>
-                    </Button>
                   </div>
                   
                   <div>
@@ -129,8 +116,8 @@ export function ContactSection() {
               </div>
 
               <div>
-                <h3 className="text-black font-bold text-2xl mb-6">Services</h3>
-                <ul className="space-y-3 text-gray-800 text-lg" role="list">
+                <h3 className="text-black font-bold text-2xl mb-6 tracking-tight">Services</h3>
+                <ul className="space-y-2 text-gray-800 text-lg leading-relaxed" role="list">
                   <li>• Choreography & Performance</li>
                   <li>• Movement Workshops</li>
                   <li>• Private Coaching</li>

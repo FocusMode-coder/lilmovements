@@ -1,8 +1,13 @@
 import { Inter } from 'next/font/google'
-import localFont from "next/font/local";
+import localFont from 'next/font/local'
 import './globals.css'
-import type { Metadata } from 'next'
 import { Providers } from './providers'
+import dynamic from 'next/dynamic'
+
+// Import HydrationGuard with no SSR to avoid hydration issues
+const HydrationGuard = dynamic(() => import('@/components/HydrationGuard'), {
+  ssr: false
+})
 
 const inter = Inter({
   subsets: ['latin'],
@@ -10,60 +15,16 @@ const inter = Inter({
   display: 'swap',
 })
 
-// Use a fallback font family for now until we add the custom font
-const lil = Inter({
-  subsets: ['latin'],
-  variable: '--font-lil',
+const lilDisplay = localFont({
+  src: '../public/fonts/LilMovementsDisplay.otf',
+  variable: '--font-lil-display',
   display: 'swap',
-  weight: ['700', '800', '900'], // Bold weights for the brand
 })
 
-const lilDisplay = localFont({
-  src: "/fonts/LilMovementsDisplay.otf",
-  variable: "--font-lil-display",
-  display: "swap",
-});
-
-export const metadata: Metadata = {
-  title: 'Lil Movements — Strength · Flow · Precision',
-  description: 'Premium dance and movement experiences curated by Lily. Explore the art of movement through elegant choreography and expressive dance.',
-  keywords: ['dance', 'movement', 'choreography', 'lily', 'premium dance', 'modern dance', 'strength', 'flow', 'precision'],
-  authors: [{ name: 'Lily' }],
-  creator: 'Lily',
-  publisher: 'Lil Movements',
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://lilmovements.com',
-    title: 'Lil Movements — Strength · Flow · Precision',
-    description: 'Premium dance and movement experiences curated by Lily. Explore the art of movement through elegant choreography and expressive dance.',
-    siteName: 'Lil Movements',
-    images: [
-      {
-        url: '/assets/hero_poster.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Lil Movements - Premium dance and movement experiences',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Lil Movements — Strength · Flow · Precision',
-    description: 'Premium dance and movement experiences curated by Lily. Explore the art of movement through elegant choreography and expressive dance.',
-    images: ['/assets/hero_poster.jpg'],
-  },
+// Basic metadata - DefaultSeo will handle detailed SEO
+export const metadata = {
+  title: 'Lil Movements — Breathe · Move · Align',
+  description: 'Premium 45-minute practice blending yoga, dance & qigong.',
 }
 
 export default function RootLayout({
@@ -72,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${lilDisplay.variable}`}>
+    <html lang="en" className={inter.variable + " " + lilDisplay.variable}>
       <head>
         {/* Preload critical hero assets */}
         <link
@@ -88,7 +49,8 @@ export default function RootLayout({
           type="video/mp4"
         />
       </head>
-      <body className="font-sans bg-black text-white antialiased">
+      <body className="font-sans bg-[var(--bg)] text-[var(--ink2)] antialiased">
+        <HydrationGuard />
         <Providers>{children}</Providers>
       </body>
     </html>

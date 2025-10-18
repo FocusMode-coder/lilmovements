@@ -8,6 +8,8 @@ import { ContactSection } from '@/components/sections/ContactSection'
 import InterviewSection from '@/components/InterviewSection'
 import HowStartedSection from '@/components/HowStartedSection'
 import ReelSection from '@/components/ReelSection'
+import ReelBackground from '@/components/ReelBackground'
+import LoopMosaic from '@/components/LoopMosaic'
 
 export function LilMovementsLanding() {
   return (
@@ -17,6 +19,9 @@ export function LilMovementsLanding() {
       <main>
         {/* Hero Section with Video */}
         <HeroSection />
+        
+        {/* Reel Background Section */}
+        <ReelBackground />
         
         {/* About Section */}
         <AboutSection />
@@ -37,6 +42,9 @@ export function LilMovementsLanding() {
         <div id="reel">
           <ReelGrid />
         </div>
+        
+        {/* Loop Mosaic Section */}
+        <LoopMosaic />
         
         {/* Contact Section */}
         <ContactSection />

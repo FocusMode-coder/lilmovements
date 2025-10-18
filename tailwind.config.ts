@@ -2,29 +2,31 @@ import type { Config } from 'tailwindcss'
 
 const config: Config = {
   content: [
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     container: {
       center: true,
       padding: '2rem',
       screens: {
-        'sm': '640px',
-        'md': '768px',
-        'lg': '1024px',
-        'xl': '1280px',
         '2xl': '1400px',
       },
     },
     extend: {
       fontFamily: {
-        'sans': ['Inter', 'system-ui', 'sans-serif'],
-        'lil': ['var(--font-lil)', 'sans-serif'],
+        sans: ['var(--font-inter)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        brand: ['var(--font-lil-display)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       colors: {
-        black: '#000000',
-        white: '#ffffff',
+        bg: 'var(--bg)',
+        warm1: 'var(--warm1)',
+        warm2: 'var(--warm2)',
+        panel: 'var(--panel)',
+        accent: 'var(--accent)',
+        ink1: 'var(--ink1)',
+        ink2: 'var(--ink2)',
       },
       screens: {
         '2xl': '1400px',

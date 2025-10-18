@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 export default function ReelSection() {
   const videoData = [
@@ -10,16 +10,16 @@ export default function ReelSection() {
       src: '/assets/LOOP-02.mp4', 
       alt: 'Lil Movements practice loop 2'
     }
-  ];
+  ]
 
   return (
-    <section className="bg-black py-16 lg:py-24">
-      <div className="container">
-        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+    <section className="py-16 md:py-24 bg-bg">
+      <div className="container max-w-7xl mx-auto">
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6">
           {videoData.map((video, index) => (
             <div 
               key={index}
-              className="aspect-square overflow-hidden rounded-xl border border-white/10"
+              className="aspect-square overflow-hidden rounded-xl ring-1 ring-inset ring-white/10"
             >
               <video
                 src={video.src}
@@ -36,5 +36,5 @@ export default function ReelSection() {
         </div>
       </div>
     </section>
-  );
+  )
 }

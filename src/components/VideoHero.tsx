@@ -148,7 +148,7 @@ export function VideoHero({
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
             {/* Bold headline using custom font */}
-            <h1 className="font-lil text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-none tracking-tight mb-6 animate-fade-in">
+            <h1 className="font-brand text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-none tracking-tight mb-6 animate-fade-in">
               {headline}
             </h1>
 
